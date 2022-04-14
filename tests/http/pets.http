@@ -1,0 +1,34 @@
+GET http://127.0.0.1:8000/api/pets
+
+
+###
+POST http://127.0.0.1:8000/api/pets
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "Black white",
+    "specie": "mamba",
+    "color": "black",
+    "size": "SM"
+}
+
+
+###
+GET http://127.0.0.1:8000/api/pets/1
+
+###
+PUT http://127.0.0.1:8000/api/pets/1
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "Neve",
+    "specie": "bunny",
+    "color": "white",
+    "size": "SM"
+}
+
+###
+DELETE http://127.0.0.1:8000/api/pets/2
+Accept: application/json
