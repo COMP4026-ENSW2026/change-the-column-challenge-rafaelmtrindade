@@ -22,7 +22,7 @@ class AddTmpSizePets extends Migration
 
         $sqlQuery  = "UPDATE pets SET tmp_size = CASE ";
         $sqlQuery .= "WHEN UPPER(size) IN ";
-        $sqlQuery .= "('" . implode("', '", array_slice($allowedSizes, 1)) . "') ";
+        $sqlQuery .= "('" . implode("', '", $allowedSizes) . "') ";
         $sqlQuery .= "THEN UPPER(size) ";
         $sqlQuery .= "WHEN UPPER(size) = 'SMALL' THEN 'SM' ";
         $sqlQuery .= "WHEN UPPER(size) = 'MEDIUM' THEN 'M' ";
