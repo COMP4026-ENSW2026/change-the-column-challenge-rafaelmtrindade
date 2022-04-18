@@ -38,7 +38,7 @@ class AddTmpSpeciesToPets extends Migration
         $sqlQuery .= "WHEN LOWER(specie) = 'turtle' THEN 'tartaruga' ";
         $sqlQuery .= "ELSE species END";
 
-        DB::statement("UPDATE pets SET specie = LOWER(specie); " . $sqlQuery);
+        DB::statement($sqlQuery);
     }
 
     /**
