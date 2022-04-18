@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
+use Illuminate\Database\DBAL\TimestampType;
 
 return [
 
@@ -108,6 +109,23 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Migrations - Doctrine DBAL
+    |--------------------------------------------------------------------------
+    |
+    | The Doctrine DBAL library is used to determine the current state of the
+    | column and to create the SQL queries needed to make the requested changes
+    | to your column.
+    |
+    */
+
+    'dbal' => [
+        'types' => [
+            'timestamp' => TimestampType::class,
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Redis Databases
     |--------------------------------------------------------------------------
     |
@@ -123,7 +141,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [

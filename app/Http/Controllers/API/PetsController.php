@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Pet;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PetsController extends Controller
 {
@@ -29,9 +30,15 @@ class PetsController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'specie' => 'required',
+            'specie' => [
+                'required',
+                Rule::in(['cachorro', 'gato', 'papagaio', 'periquito', 'calopsita', 'lagarto', 'peixe', 'cobra', 'tartaruga', 'rato', 'hamster', 'coelho', 'cavalo', 'outro'])
+            ],
             'color' => 'required',
-            'size' => 'required|max:2',
+            'size' => [
+                'required',
+                Rule::in(['XS', 'SM', 'M', 'L', 'XL'])
+            ]
         ]);
 
 
